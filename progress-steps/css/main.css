@@ -93,11 +93,10 @@ select {
 .progress-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   position: relative;
   margin-bottom: 30px;
   max-width: 100%;
-  width: 340px;
+  width: 350px;
 }
 .progress-container::before {
   content: "";
@@ -128,10 +127,19 @@ select {
   border-radius: 50%;
   height: 30px;
   width: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: border-color 0.4s ease;
+  position: relative;
+  margin: 0 -5px;
+}
+.progress-container .circle span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
 }
 .progress-container .circle.active {
   border-color: var(--line-border-fill);
