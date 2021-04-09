@@ -24,6 +24,11 @@
 		flex: 5;
 		h3 {
 			opacity: 1;
+			transition: opacity 0.3s ease-in 0.4s;
+			-webkit-transition: opacity 0.3s ease-in 0.4s;
+			-moz-transition: opacity 0.3s ease-in 0.4s;
+			-ms-transition: opacity 0.3s ease-in 0.4s;
+			-o-transition: opacity 0.3s ease-in 0.4s;
 		}
 	}
 }
