@@ -1,0 +1,241 @@
+.music-container {
+	background-color: #fff;
+	border-radius: 15px;
+	box-shadow: 0 20px 20px 0 rgba(525, 169, 169, 0.6);
+	display: flex;
+	padding: 20px 30px;
+	margin: 100px 0;
+	position: relative;
+	z-index: 10;
+	&.play {
+		.img-container img {
+			animation-play-state: running;
+		}
+
+		.music-info {
+			opacity: 1;
+			transform: translateY(-100%);
+		}
+	}
+
+	&.pause {
+		.music-info {
+			opacity: 1;
+			transform: translateY(-100%);
+		}
+	}
+}
+
+.music-info {
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 15px 15px 0 0;
+	position: absolute;
+	top: 0;
+	left: 20px;
+	width: calc(100% - 40px);
+	opacity: 0;
+	transform: translateY(0%);
+	padding: 15px 15px 15px 150px;
+	transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+
+	h4 {
+		margin: 0;
+	}
+
+	.progress-container {
+		background-color: #fff;
+		border-radius: 5px;
+		cursor: pointer;
+		margin: 10px 0;
+		height: 4px;
+		width: 100%;
+
+		.progress {
+			background-color: #fe8daa;
+			border-radius: 5px;
+			height: 100%;
+			width: 0%;
+			transition: width 0.1s linear;
+		}
+	}
+
+	.duration-container {
+		display: flex;
+		justify-content: space-between;
+		span {
+			font-size: 0.875rem;
+			color: #aaa;
+		}
+	}
+}
+
+.img-container {
+	width: 110px;
+	position: relative;
+
+	img {
+		width: inherit;
+		height: 110px;
+		border-radius: 50%;
+		object-fit: cover;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		animation: rotate 3s linear infinite;
+		-webkit-animation: rotate 3s linear infinite;
+		animation-play-state: paused;
+	}
+
+	&::after {
+		content: '';
+		background-color: #fff;
+		border-radius: 50%;
+		position: absolute;
+		// bottom: 100%;
+		left: 50%;
+		width: 30px;
+		height: 30px;
+		transform: translate(-50%, 10%);
+	}
+}
+
+.navigation-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.navigation {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+
+	.action-btn {
+		background-color: #fff;
+		border: none;
+		color: #dfdbdf;
+		cursor: pointer;
+		font-size: 20px;
+		padding: 10px;
+		margin: 0 20px;
+
+		&-big {
+			color: #cdc2d0;
+			font-size: 30px;
+		}
+
+		&:focus {
+			outline: 0;
+		}
+	}
+}
+
+.controls {
+	display: flex;
+	align-items: ce;
+	gap: 1em;
+
+	.volume-change {
+		border: none;
+		background-color: inherit;
+		margin: 0;
+		padding: 0;
+		cursor: pointer;
+	}
+
+	.volume {
+		width: 100%;
+		margin: 3px 0;
+		background-color: transparent;
+		-webkit-appearance: none;
+
+		&:focus {
+			outline: none;
+		}
+		&::-webkit-slider-runnable-track {
+			background: #fe8daa;
+			border-radius: 25px;
+			width: 100%;
+			height: 4px;
+			cursor: pointer;
+		}
+		&::-webkit-slider-thumb {
+			margin-top: -3.2px;
+			width: 10px;
+			height: 10px;
+			background: #d87b93;
+			border: 0;
+			border-radius: 50px;
+			cursor: pointer;
+			-webkit-appearance: none;
+		}
+		&:focus::-webkit-slider-runnable-track {
+			background: #fea6bd;
+		}
+		&::-moz-range-track {
+			background: #fe8daa;
+			border: 0.2px solid #010101;
+			border-radius: 1.3px;
+			width: 100%;
+			height: 4px;
+			cursor: pointer;
+		}
+		&::-moz-range-thumb {
+			width: 10px;
+			height: 10px;
+			background: #d87b93;
+			border: 0;
+			border-radius: 50px;
+			cursor: pointer;
+		}
+		&::-ms-track {
+			background: transparent;
+			border-color: transparent;
+			border-width: 4px 0;
+			color: transparent;
+			width: 100%;
+			height: 4px;
+			cursor: pointer;
+		}
+		&::-ms-fill-lower {
+			background: #fe7497;
+			border: 0.2px solid #010101;
+			border-radius: 2.6px;
+		}
+		&::-ms-fill-upper {
+			background: #fe8daa;
+			border: 0.2px solid #010101;
+			border-radius: 2.6px;
+		}
+		&::-ms-thumb {
+			width: 10px;
+			height: 10px;
+			background: #d87b93;
+			border: 0;
+			border-radius: 50px;
+			cursor: pointer;
+			margin-top: 0px;
+			/*Needed to keep the Edge thumb centred*/
+		}
+		&:focus::-ms-fill-lower {
+			background: #fe8daa;
+		}
+		&:focus::-ms-fill-upper {
+			background: #fea6bd;
+		}
+	}
+
+	@supports (-ms-ime-align: auto) {
+		input[type='range'] {
+			margin: 0;
+		}
+	}
+}
+
+@keyframes rotate {
+	to {
+		transform: rotate(360deg);
+	}
+}
