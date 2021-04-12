@@ -32,20 +32,16 @@ const tracks = [
 ];
 
 let trackIndex = 2;
-
+let currentGainNode = 1;
 // load song into DOM
 loadTrack(tracks[trackIndex]);
-setTrackTime();
+
 // update songs details
 function loadTrack(song) {
 	const titleCapitalized = song.charAt(0).toUpperCase() + song.slice(1);
 	title.innerText = titleCapitalized;
 	audio.src = `assets/music/${song}.mp3`;
 	cover.src = `assets/images/${song}.jpg`;
-}
-
-function setTrackTime() {
-	console.log(audioContext);
 }
 
 function pauseTrack() {
@@ -63,7 +59,6 @@ function playTrack() {
 	play.querySelector('i.fas').classList.add('fa-pause');
 
 	audio.play();
-	console.log(audioContext);
 }
 
 function prevTrack() {
@@ -91,9 +86,10 @@ function nextTrack() {
 }
 
 function updateProgress(e) {
-	// const { duration, currentTime } = e.srcElement;
 	const progressPercent = (audio.currentTime / audio.duration) * 100;
 	progress.style.width = `${progressPercent}%`;
+	const currentTime = formatTime(audio.currentTime);
+	currentTimeSpan.textContent = currentTime;
 }
 
 function setProgress(e) {
@@ -101,6 +97,12 @@ function setProgress(e) {
 	const clickX = e.offsetX;
 	const duration = audio.duration;
 	audio.currentTime = (clickX / width) * duration;
+}
+
+function formatTime(time) {
+	const min = Math.floor(time / 60);
+	const sec = Math.floor(time % 60);
+	return `${min < 10 ? `0${min}` : min}:${sec < 10 ? `0${sec}` : sec}`;
 }
 
 // Event listeners
@@ -127,10 +129,16 @@ progressContainer.addEventListener('click', setProgress);
 
 audio.addEventListener('ended', nextTrack);
 
+audio.addEventListener('loadedmetadata', () => {
+	const trackDuration = formatTime(audio.duration);
+	durationSpan.textContent = trackDuration;
+});
+
 volumeControl.addEventListener(
 	'input',
 	function () {
 		gainNode.gain.value = this.value;
+		currentGainNode = this.value;
 		if (gainNode.gain.value === 0) {
 			volumeToggle.querySelector('i.fas').classList.remove('fa-volume-down');
 			volumeToggle.querySelector('i.fas').classList.add('fa-volume-mute');
@@ -147,13 +155,12 @@ volumeControl.addEventListener(
 );
 
 volumeToggle.addEventListener('click', function () {
-	const currentGainValue = gainNode.gain.value;
-	if (currentGainValue >= 1) {
+	if (gainNode.gain.value > 0) {
 		gainNode.gain.value = 0;
 		volumeToggle.querySelector('i.fas').classList.remove('fa-volume-down');
 		volumeToggle.querySelector('i.fas').classList.add('fa-volume-mute');
 	} else {
-		gainNode.gain.value = 1;
+		gainNode.gain.value = currentGainNode;
 		volumeToggle.querySelector('i.fas').classList.add('fa-volume-down');
 		volumeToggle.querySelector('i.fas').classList.remove('fa-volume-mute');
 	}
