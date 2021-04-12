@@ -72,10 +72,10 @@
 .img-container {
 	width: 110px;
 	position: relative;
-
+	height: 110px;
 	img {
 		width: inherit;
-		height: 110px;
+		height: inherit;
 		border-radius: 50%;
 		object-fit: cover;
 		position: absolute;
@@ -91,11 +91,11 @@
 		background-color: #fff;
 		border-radius: 50%;
 		position: absolute;
-		// bottom: 100%;
+		top: 50%;
 		left: 50%;
 		width: 30px;
 		height: 30px;
-		transform: translate(-50%, 10%);
+		transform: translate(-50%, -50%);
 	}
 }
 
