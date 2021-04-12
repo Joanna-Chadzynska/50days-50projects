@@ -16,7 +16,6 @@ const durationSpan = document.querySelector('.duration');
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 const audioContext = new AudioContext();
 const gainNode = audioContext.createGain();
-
 const track = audioContext.createMediaElementSource(audio);
 
 track.connect(gainNode).connect(audioContext.destination);
@@ -33,6 +32,7 @@ const tracks = [
 
 let trackIndex = 2;
 let currentGainNode = 1;
+
 // load song into DOM
 loadTrack(tracks[trackIndex]);
 
@@ -49,7 +49,6 @@ function pauseTrack() {
 	musicContainer.classList.add('pause');
 	play.querySelector('i.fas').classList.add('fa-play');
 	play.querySelector('i.fas').classList.remove('fa-pause');
-
 	audio.pause();
 }
 
@@ -57,7 +56,6 @@ function playTrack() {
 	musicContainer.classList.add('play');
 	play.querySelector('i.fas').classList.remove('fa-play');
 	play.querySelector('i.fas').classList.add('fa-pause');
-
 	audio.play();
 }
 
@@ -69,7 +67,6 @@ function prevTrack() {
 	}
 
 	loadTrack(tracks[trackIndex]);
-
 	playTrack();
 }
 
@@ -81,7 +78,6 @@ function nextTrack() {
 	}
 
 	loadTrack(tracks[trackIndex]);
-
 	playTrack();
 }
 
