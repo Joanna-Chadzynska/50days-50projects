@@ -1,0 +1,19 @@
+@use 'base';
+
+.bg {
+	background: url('https://images.pexels.com/photos/371589/pexels-photo-371589.jpeg?cs=srgb&dl=pexels-pixabay-371589.jpg&fm=jpg')
+		no-repeat center center/cover;
+	position: absolute;
+	top: -30px;
+	left: -30px;
+	width: calc(100vw + 60px);
+	height: calc(100vw + 60px);
+	z-index: -1;
+	filter: blur(0px);
+	-webkit-filter: blur(0px);
+}
+
+.loading-txt {
+	font-size: 50px;
+	color: #fff;
+}
