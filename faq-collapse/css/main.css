@@ -1,0 +1,187 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  font-family: "Muli", sans-serif;
+  letter-spacing: -0.5px;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  margin: 50px 0 30px;
+  text-align: center;
+}
+
+.faq-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+details {
+  background-color: transparent;
+  border: 1px solid #9fa4a8;
+  border-radius: 10px;
+  width: 600px;
+  margin: 10px 0;
+  padding: 30px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+details[open] {
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  animation: animateDown 0.2s linear forwards;
+}
+details[open] summary::before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+  top: 15%;
+  background-color: #9fa488;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+details[open]::before, details[open]::after {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+  color: #2ecc71;
+  font-size: 7rem;
+  position: absolute;
+  opacity: 0.2;
+  top: -10px;
+  left: 20px;
+  z-index: 0;
+}
+details[open]::before {
+  color: #3498db;
+  top: -40px;
+  left: -30px;
+  transform: rotateY(180deg);
+}
+details summary > * {
+  display: inline;
+}
+details summary {
+  cursor: pointer;
+  font-weight: bold;
+  list-style: none;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+details summary::before {
+  content: "";
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  right: 5%;
+  top: 20%;
+}
+details p {
+  margin: 30px 0 0 0;
+}
+
+@keyframes animateDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    -moz-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
