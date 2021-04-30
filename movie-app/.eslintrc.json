@@ -1,13 +1,6 @@
 {
   "ignorePatterns": ["dist", "node_modules"],
   "rules": {
-    "max-len": [
-      "error",
-      {
-        "ignoreUrls": true,
-        "code": 80
-      }
-    ],
     "prefer-template": "off",
     "indent": [1, 2],
     "object-curly-spacing": 1,

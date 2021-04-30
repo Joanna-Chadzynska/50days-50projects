@@ -1,9 +1,9 @@
 {
-  "name": "webpack-boilerplate",
+  "name": "movie-app",
   "version": "2.0.1",
-  "description": "Sensible webpack 5 boilerplate using Babel and PostCSS with a hot dev server and an optimized production build.",
+  "description": "Movie App",
   "main": "index.js",
-  "author": "Tania Rascia",
+  "author": "Joanna Chądzyńska",
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
@@ -45,9 +45,5 @@
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:taniarascia/webpack-boilerplate"
   }
 }
