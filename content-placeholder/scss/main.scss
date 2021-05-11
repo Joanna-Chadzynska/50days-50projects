@@ -1,0 +1,102 @@
+@use 'base';
+@import './variables';
+
+body {
+	font-family: 'Mulish', sans-serif;
+	letter-spacing: -0.5px;
+	background: #ecf0f1;
+}
+
+img {
+	max-width: 100%;
+}
+
+.card {
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	overflow: hidden;
+	width: 350px;
+
+	&__header {
+		height: 200px;
+		img {
+			object-fit: cover;
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	&__content {
+		background-color: #fff;
+		padding: 2rem;
+
+		.card__title {
+			height: 20px;
+			margin: 0;
+			margin-bottom: 15px;
+		}
+
+		.card__excerpt {
+			color: #777;
+			margin: 10px 0 20px;
+		}
+
+		.card__author {
+			display: flex;
+
+			.profile__img {
+				border-radius: 50%;
+				overflow: hidden;
+				height: 40px;
+				width: 40px;
+			}
+
+			.author__info {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				margin-left: 10px;
+				width: 100px;
+
+				small {
+					color: #aaa;
+					margin-top: 5px;
+				}
+			}
+		}
+	}
+}
+
+.card__header.animated-bg,
+.card__title.animated-bg,
+.profile__img.animated-bg,
+.animated-bg {
+	background-image: linear-gradient(
+		to right,
+		#f6f7f8 0%,
+		#edeef1 10%,
+		#f6f7f8 20%,
+		#f6f7f8 100%
+	);
+	background-size: 200% 100%;
+
+	animation: bgPos 1s linear infinite;
+
+	@keyframes bgPos {
+		0% {
+			background-position: 50% 0;
+		}
+		100% {
+			background-position: -150% 0;
+		}
+	}
+}
+
+.card__title.animated-bg-text,
+.animated-bg-text {
+	border-radius: 50px;
+	display: inline-block;
+	margin: 0;
+	height: 10px;
+	width: 100%;
+}
