@@ -1,0 +1,26 @@
+{
+	"name": "50days-50projects",
+	"version": "1.0.0",
+	"description": "Creating 50 projects in 50 days",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"sass": "sass --watch scss:css"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Joanna-Chadzynska/50days-50projects.git"
+	},
+	"author": " <Your Name> (example.com)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Joanna-Chadzynska/50days-50projects/issues"
+	},
+	"homepage": "https://github.com/Joanna-Chadzynska/50days-50projects#readme",
+	"dependencies": {
+		"axios": "^0.21.1"
+	},
+	"devDependencies": {
+		"sass": "^1.32.8"
+	}
+}

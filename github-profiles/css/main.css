@@ -124,7 +124,8 @@ body {
 .card .user-img .avatar {
   border: 10px solid #2a2a72;
   border-radius: 50%;
-  max-width: 100%;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
 }
 .card .user-info {
