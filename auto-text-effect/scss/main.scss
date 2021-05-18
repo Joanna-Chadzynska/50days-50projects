@@ -7,4 +7,26 @@ body {
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
+	background-color: darksalmon;
+}
+
+div {
+	position: absolute;
+	bottom: 20px;
+	background-color: #0000001a;
+	padding: 10px 20px;
+	font-size: 1.2rem;
+}
+
+input {
+	width: 50px;
+	padding: 5px;
+	font-size: 1.2rem;
+	background-color: darksalmon;
+	border: none;
+	text-align: center;
+
+	&:focus {
+		outline: 1px solid rgb(230, 101, 58);
+	}
 }
